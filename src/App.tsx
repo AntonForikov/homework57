@@ -7,10 +7,10 @@ function App() {
     // const [count, setCount] = useState(0);
 
     return (
-        <>
-            <UserForm/>
+        <div className='row p-3 justify-content-between'>
+            <UserForm />
             <User/>
-        </>
+        </div>
     );
 }
 
