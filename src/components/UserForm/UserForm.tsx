@@ -26,6 +26,10 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
             id: Math.random().toString(),
             ...user
         });
+        const userCopy = user;
+        userCopy.name = '';
+        userCopy.email = '';
+        setUser(userCopy);
     };
 
     const changeActive = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,6 +49,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
                     name='name'
                     id='name'
                     className='form-control'
+                    required
                     value={user.name}
                     onChange={changeUser}
                 />
@@ -54,6 +59,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
                     name='email'
                     id='email'
                     className='form-control mb-3'
+                    required
                     value={user.email}
                     onChange={changeUser}
                 />
