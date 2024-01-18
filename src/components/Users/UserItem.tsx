@@ -8,7 +8,7 @@ interface Props {
 }
 const UserItem: React.FC <Props> = ({name, email, active, role}) => {
     return (
-        <div className='d-flex flex-column border ps-2 my-2'>
+        <div className='d-flex flex-column border ps-2 my-2 align-items-center'>
             <span>Name: {name}</span>
             <span>Email: {email}</span>
             <span>Activity: {active ? 'Active' : 'Lazy'} user</span>
