@@ -13,7 +13,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
         active: false
     });
 
-    const changeUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const changeUser = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
         setUser(prevState => ({
             ...prevState,
             [e.target.name]: e.target.value
@@ -22,11 +22,17 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
 
     const onFormSubmit =(e: React.FormEvent) => {
         e.preventDefault();
-        console.log(user);
         onSubmit({
             id: Math.random().toString(),
             ...user
         });
+    };
+
+    const changeActive = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUser(prevState => ({
+            ...prevState,
+            [e.target.name]: e.target.checked
+        }));
     };
 
     return (
@@ -54,7 +60,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
                 <div className='d-flex justify-content-between align-items-center'>
                     <div>
                         <label htmlFor='role'>User role: </label>
-                        <select className='mx-2' id='role' name='role'>
+                        <select className='mx-2' id='role' name='role' onChange={changeUser} required>
                             <option value=''>--select role--</option>
                             <option value='user'>User</option>
                             <option value='admin'>Admin</option>
@@ -68,6 +74,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
                             type='checkbox'
                             name='active'
                             id='active'
+                            onChange={changeActive}
                         />
                     </div>
                     <button type='submit' className='btn btn-primary d-block'>Add user</button>

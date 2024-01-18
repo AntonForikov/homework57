@@ -8,10 +8,10 @@ interface Props {
 }
 const UserItem: React.FC <Props> = ({name, email, active, role}) => {
     return (
-        <div>
+        <div className='d-flex flex-column border ps-2 my-2'>
             <span>Name: {name}</span>
             <span>Email: {email}</span>
-            <span>{active ? 'Active user' : 'Unactive user'}</span>
+            <span>Activity: {active ? 'Active' : 'Lazy'} user</span>
             <span>User Role: {role}</span>
         </div>
     );
