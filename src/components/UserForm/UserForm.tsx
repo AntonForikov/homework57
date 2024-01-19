@@ -29,6 +29,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
         const userCopy = user;
         userCopy.name = '';
         userCopy.email = '';
+        userCopy.active = false;
         setUser(userCopy);
         const box = document.getElementById('active') as HTMLInputElement;
         box.checked = false;
